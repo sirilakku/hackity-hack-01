@@ -1,9 +1,9 @@
 const mongoose = require("../mongoose");
 
 // order schema
-const orderSchema = new Schema({
+const orderSchema = new mongoose.Schema({
   pizzas: {
-    type: [{ name: string, toppings: [string], price: number }],
+    type: [{ name: String, toppings: String, price: Number }],
     required: true,
     validate: {
       validator: function (pizzas) {
@@ -29,7 +29,7 @@ const orderSchema = new Schema({
       message: "Status must be pending or complete",
     },
   }
-}});
+});
 
 // create model from schema
-const Order = mongoose.model(orderSchema, Orders);
+const Orders = mongoose.model(orderSchema, "Orders");
